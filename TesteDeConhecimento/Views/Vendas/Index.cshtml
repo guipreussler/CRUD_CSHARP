@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TesteDeConhecimento.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vendas</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Nova Venda</a>
+</p>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtdVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VlrUnitarioVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DthVenda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VlrTotalVenda)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlrUnitarioVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DthVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VlrTotalVenda)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Detalhes</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
